@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Help Resources - MIRA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-purple-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold text-purple-600">MIRA</div>
+        </div>
+    </nav>
+
+    <!-- Tool Selection Modal -->
+    <div id="toolModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
+        <div class="bg-white p-8 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h2 id="modalTitle" class="text-2xl font-bold text-purple-600">Tool Name</h2>
+                <button onclick="closeModal()" class="text-gray-600 hover:text-purple-600">
+                    ✕
+                </button>
+            </div>
+            <div id="modalContent" class="space-y-4">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-br from-purple-500 to-pink-600 text-white py-16">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Your Wellness Toolkit</h1>
+            <p class="text-xl mb-8">Personalized Mental Health Resources</p>
+        </div>
+    </header>
+
+    <!-- Wellness Tools Grid -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Mood Tracker -->
+                <div class="bg-purple-50 p-6 rounded-lg cursor-pointer tool-card" data-tool="moodTracker">
+                    <h3 class="text-xl font-semibold mb-4 text-purple-600">Mood Tracker</h3>
+                    <p class="text-gray-700 mb-4">Monitor and understand your emotional patterns</p>
+                    <ul class="space-y-2 mb-4">
+                        <li>• Daily emotion logging</li>
+                        <li>• Trend analysis</li>
+                        <li>• Personalized insights</li>
+                    </ul>
+                    <button class="w-full bg-purple-600 text-white py-2 rounded-full">
+                        Start Tracking
+                    </button>
+                </div>
+
+                <!-- Meditation Guides -->
+                <div class="bg-purple-50 p-6 rounded-lg cursor-pointer tool-card" data-tool="meditationGuides">
+                    <h3 class="text-xl font-semibold mb-4 text-purple-600">Meditation Guides</h3>
+                    <p class="text-gray-700 mb-4">Mindfulness and relaxation techniques</p>
+                    <ul class="space-y-2 mb-4">
+                        <li>• Stress reduction</li>
+                        <li>• Anxiety management</li>
+                        <li>• Sleep meditation</li>
+                    </ul>
+                    <button class="w-full bg-purple-600 text-white py-2 rounded-full">
+                        Begin Meditation
+                    </button>
+                </div>
+
+                <!-- Cognitive Exercises -->
+                <div class="bg-purple-50 p-6 rounded-lg cursor-pointer tool-card" data-tool="cognitiveExercises">
+                    <h3 class="text-xl font-semibold mb-4 text-purple-600">Cognitive Exercises</h3>
+                    <p class="text-gray-700 mb-4">Mental resilience and positive thinking</p>
+                    <ul class="space-y-2 mb-4">
+                        <li>• Cognitive reframing</li>
+                        <li>• Positive affirmations</li>
+                        <li>• Thought pattern analysis</li>
+                    </ul>
+                    <button class="w-full bg-purple-600 text-white py-2 rounded-full">
+                        Start Exercises
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Tool content definitions
+        const toolContent = {
+            moodTracker: {
+                title: 'Mood Tracker',
+                content: `
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-semibold">Daily Mood Check-In</h3>
+                        <div>
+                            <label class="block mb-2">How are you feeling today?</label>
+                            <select id="moodSelect" class="w-full p-2 border rounded">
+                                <option>Very Happy</option>
+                                <option>Happy</option>
+                                <option>Neutral</option>
+                                <option>Sad</option>
+                                <option>Very Sad</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block mb-2">Additional Notes</label>
+                            <textarea class="w-full p-2 border rounded" rows="4"></textarea>
+                        </div>
+                        <button onclick="saveMoodEntry()" class="bg-purple-600 text-white py-2 px-4 rounded">
+                            Save Mood Entry
+                        </button>
+                    </div>
+                `
+            },
+            meditationGuides: {
+                title: 'Meditation Guides',
+                content: `
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-semibold">Guided Meditation</h3>
+                        <div>
+                            <label class="block mb-2">Select Meditation Type</label>
+                            <select class="w-full p-2 border rounded">
+                                <option>Stress Reduction</option>
+                                <option>Anxiety Relief</option>
+                                <option>Sleep Meditation</option>
+                                <option>Mindfulness</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block mb-2">Duration</label>
+                            <select class="w-full p-2 border rounded">
+                                <option>5 Minutes</option>
+                                <option>10 Minutes</option>
+                                <option>15 Minutes</option>
+                                <option>20 Minutes</option>
+                            </select>
+                        </div>
+                        <button class="bg-purple-600 text-white py-2 px-4 rounded">
+                            Start Meditation
+                        </button>
+                    </div>
+                `
+            },
+            cognitiveExercises: {
+                title: 'Cognitive Exercises',
+                content: `
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-semibold">Cognitive Reframing Exercise</h3>
+                        <div>
+                            <label class="block mb-2">Enter a negative thought:</label>
+                            <textarea class="w-full p-2 border rounded" rows="3"></textarea>
+                        </div>
+                        <div>
+                            <label class="block mb-2">Reframe this thought positively:</label>
+                            <textarea class="w-full p-2 border rounded" rows="3"></textarea>
+                        </div>
+                        <button class="bg-purple-600 text-white py-2 px-4 rounded">
+                            Save Reflection
+                        </button>
+                    </div>
+                `
+            }
+        };
+
+        // Add click event listeners to tool cards
+        document.querySelectorAll('.tool-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const toolKey = this.getAttribute('data-tool');
+                openModal(toolKey);
+            });
+        });
+
+        // Open modal function
+        function openModal(toolKey) {
+            const modal = document.getElementById('toolModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+
+            modalTitle.textContent = toolContent[toolKey].title;
+            modalContent.innerHTML = toolContent[toolKey].content;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        // Close modal function
+        function closeModal() {
+            const modal = document.getElementById('toolModal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        // Placeholder functions for tool interactions
+        function saveMoodEntry() {
+            alert('Mood entry saved successfully!');
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+# [Project Name] 🎯
+
+
+## Basic Details
+### Team Name: [Name]
+
+
+### Team Members
+- Member 1: [Name] - [College]
+- Member 2: [Name] - [College]
+- Member 3: [Name] - [College]
+
+### Hosted Project Link
+[mention your project hosted project link here]
+
+### Project Description
+[2-3 lines about what your project does]
+
+### The Problem statement
+[What ridiculous problem are you solving?]
+
+### The Solution
+[How are you solving it? Keep it fun!]
+
+## Technical Details
+### Technologies/Components Used
+For Software:
+- [Languages used]
+- [Frameworks used]
+- [Libraries used]
+- [Tools used]
+
+For Hardware:
+- [List main components]
+- [List specifications]
+- [List tools required]
+
+### Implementation
+For Software:
+# Installation
+[commands]
+
+# Run
+[commands]
+
+### Project Documentation
+For Software:
+
+# Screenshots (Add at least 3)
+![Screenshot1](Add screenshot 1 here with proper name)
+*Add caption explaining what this shows*
+
+![Screenshot2](Add screenshot 2 here with proper name)
+*Add caption explaining what this shows*
+
+![Screenshot3](Add screenshot 3 here with proper name)
+*Add caption explaining what this shows*
+
+# Diagrams
+![Workflow](Add your workflow/architecture diagram here)
+*Add caption explaining your workflow*
+
+For Hardware:
+
+# Schematic & Circuit
+![Circuit](Add your circuit diagram here)
+*Add caption explaining connections*
+
+![Schematic](Add your schematic diagram here)
+*Add caption explaining the schematic*
+
+# Build Photos
+![Team](Add photo of your team here)
+
+
+![Components](Add photo of your components here)
+*List out all components shown*
+
+![Build](Add photos of build process here)
+*Explain the build steps*
+
+![Final](Add photo of final product here)
+*Explain the final build*
+
+### Project Demo
+# Video
+[Add your demo video link here]
+*Explain what the video demonstrates*
+
+# Additional Demos
+[Add any extra demo materials/links]
+
+## Team Contributions
+- [Name 1]: [Specific contributions]
+- [Name 2]: [Specific contributions]
+- [Name 3]: [Specific contributions]
+
+---
+Made with ❤️ at TinkerHub

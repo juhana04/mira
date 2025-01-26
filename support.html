@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Support - MIRA Mental Wellness</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-purple-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold text-purple-600">MIRA</div>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-700 hover:text-purple-600">Home</a>
+                <a href="features.html" class="text-gray-700 hover:text-purple-600">Features</a>
+                <a href="#" class="text-purple-600">Get Support</a>
+                <a href="#contact" class="bg-purple-600 text-white px-4 py-2 rounded-full">Connect Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-br from-purple-500 to-pink-600 text-white py-16">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                Your Path to Mental Wellness
+            </h1>
+            <p class="text-xl mb-8">
+                Multiple support options tailored to your needs
+            </p>
+        </div>
+    </header>
+
+    <!-- Support Options -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">How We Can Help</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-purple-50 p-8 rounded-lg text-center">
+                    <div class="text-purple-600 mb-4 flex justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path>
+                            <rect x="4" y="4" width="16" height="12" rx="2"></rect>
+                            <path d="M12 16v4"></path>
+                            <path d="M8 4v2"></path>
+                            <path d="M4 6h16"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Online Counseling</h3>
+                    <p class="text-gray-600 mb-4">Direct video and chat sessions with licensed professionals</p>
+                    <a href="session.html" class="bg-purple-600 text-white px-4 py-2 rounded-full">Book Session</a>
+                </div>
+
+                <div class="bg-purple-50 p-8 rounded-lg text-center">
+                    <div class="text-purple-600 mb-4 flex justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Support Helpline</h3>
+                    <p class="text-gray-600 mb-4">24/7 confidential phone support and crisis intervention</p>
+                    <a href="call.html" class="bg-purple-600 text-white px-4 py-2 rounded-full">Call Now</a>
+                </div>
+
+                <div class="bg-purple-50 p-8 rounded-lg text-center">
+                    <div class="text-purple-600 mb-4 flex justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                            <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Self-Help Resources</h3>
+                    <p class="text-gray-600 mb-4">Interactive guides, meditation, and wellness tools</p>
+                    <a href="tools.html" class="bg-purple-600 text-white px-4 py-2 rounded-full">Explore</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-purple-600 text-white py-16">
+        <div class="max-w-md mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6">Personalized Support Request</h2>
+            <form class="space-y-4">
+                <input type="text" placeholder="Full Name" class="w-full px-4 py-3 rounded-full text-gray-800" required>
+                <input type="email" placeholder="Email Address" class="w-full px-4 py-3 rounded-full text-gray-800" required>
+                <select class="w-full px-4 py-3 rounded-full text-gray-800">
+                    <option>Select Support Type</option>
+                    <option>Online Counseling</option>
+                    <option>Crisis Support</option>
+                    <option>Self-Help Resources</option>
+                </select>
+                <textarea placeholder="Brief Description of Your Needs" class="w-full px-4 py-3 rounded-lg text-gray-800" rows="4"></textarea>
+                <button type="submit" class="bg-white text-purple-600 px-10 py-4 rounded-full text-lg font-semibold hover:bg-purple-100">
+                    Submit Request
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p>© 2024 MIRA. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
